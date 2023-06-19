@@ -1,0 +1,13 @@
+Size of Linked List is : 
+4
+Before Inserting Any Value LinkList values are : 
+10 20 30 40 
+40 30 20 10 
+-----------------------
+Want to insert any value ? 
+Enter a Position Where you want to insert : 
+Enter a value you want to insert : 
+After inserting 100 At Head LinkList values are
+100 10 20 30 40 
+40 30 20 10 100 
+-----------------------
