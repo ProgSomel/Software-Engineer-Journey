@@ -47,11 +47,16 @@ int sizeOfLikedList(Node *head) {
 }
 
 //! Delete head 
-void deletehead(Node *&head) {
+void deletehead(Node *&head, Node *tail) {
     Node *deletehead = head;
     head = head->next;
-    head->prev = NULL;
     delete deletehead;
+    if(head == NULL) {
+        tail = NULL;
+        return;
+    }
+    head->prev = NULL;
+
 
 
 }
@@ -74,11 +79,15 @@ void deleteAtAnyPosition(Node *head, int pos) {
 }
 
 //!Delete tail 
-void deleteTail(Node *&tail) {
+void deleteTail(Node *&head, Node *&tail) {
     Node *deleteTail = tail;
     tail = tail->prev ;
-    tail->next = NULL ;
     delete deleteTail ;
+    if(tail == NULL) {
+      head = NULL ;
+      return ;
+    }
+    tail->next = NULL ;
 }
 
 
@@ -103,10 +112,10 @@ int main()
         cout<<"Invalid Index"<<endl;
     }
     else if(pos==0) {
-        deletehead(head);
+        deletehead(head, tail);
     }
     else if(pos==sizeOfLikedList(head)-1) {
-        deleteTail(tail);
+        deleteTail(head, tail);
     }
     else {
         deleteAtAnyPosition(head,pos);
